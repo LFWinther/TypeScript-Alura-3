@@ -1,3 +1,5 @@
+import { logarTempoExec } from "../decorators/logar-tempo-exec.js";
+
 export abstract class View<T> {
 
     protected elemento: HTMLElement;
@@ -15,6 +17,7 @@ export abstract class View<T> {
         }
     }
 
+    @logarTempoExec()
     public update(model: T): void {
         let template = this.template(model);
         if (this.escapar) {
